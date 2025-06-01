@@ -24,10 +24,15 @@ class CheckoutController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|email',
             'phone' => 'nullable|string',
+            'company' => 'required|string|max:255',
+            'project_name' => 'required|string|max:255',
+            'project_start' => 'required|date|after_or_equal:today',
+            'project_end' => 'required|date|after_or_equal:project_start',
+            'note' => 'nullable|string|max:555',
             'message' => 'nullable|string',
         ]);
 
-        // Podaći o korpi
+        // Podaci o korpi
         $cart = session('cart', []);
         $items = \App\Models\Item::findMany(array_keys($cart));
         $itemsWithQuantities = $items->map(function ($item) use ($cart) {
@@ -35,16 +40,14 @@ class CheckoutController extends Controller
             return $item;
         });
 
-        // Slanje mejlova
-        // Korisniku
+        // Slanje mejla korisniku
         Mail::to($validated['email'])->send(new Checkout($validated, $itemsWithQuantities, false));
-
-        // Adminu
-        Mail::to('pusicastefan1@gmail.com')->send(new Checkout($validated, $itemsWithQuantities, true));
+        // Slanje mejla adminu
+        Mail::to('stefan.pusica@beostud.rs')->send(new Checkout($validated, $itemsWithQuantities, true));
 
         // Čistiš korpu
         session()->forget('cart');
 
-        // return redirect('/')->with('success', 'Uspešno ste poslali zahtev. Javićemo vam se uskoro!');
+        return redirect('/')->with('success', 'Uspešno ste poslali zahtev. Javićemo vam se uskoro!');
     }
 }

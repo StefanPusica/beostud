@@ -2,6 +2,8 @@
 
 namespace App\Mail;
 
+use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Mail\Mailables\Attachment;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
@@ -53,6 +55,18 @@ class Checkout extends Mailable
      */
     public function attachments(): array
     {
+        if ($this->isAdmin) {
+            $pdf = Pdf::loadView('emails.admin-checkout-pdf', [
+                'data' => $this->data,
+                'items' => $this->items,
+            ]);
+
+            return [
+                Attachment::fromData(fn () => $pdf->output(), 'narudzbina.pdf')
+                        ->withMime('application/pdf')
+            ];
+        }
+
         return [];
     }
 }

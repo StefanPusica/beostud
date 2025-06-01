@@ -28,8 +28,8 @@
                     </div>
     
                     <div class="mb-3">
-                        <label for="projectName" class="form-label">Naziv projekta</label>
-                        <input type="text" name="projectName" id="projectName" class="form-control" required />
+                        <label for="project_name" class="form-label">Naziv projekta</label>
+                        <input type="text" name="project_name" id="project_name" class="form-control" required />
                     </div>
     
                     <div class="mb-3">
