@@ -145,145 +145,91 @@
             </div>
           </div>
       
-          <!-- Rental Section start -->
-          <section id="rentalSection" class="py-5">
-            <div class="container-fluid">
-              <div class="row">
-                <!-- Big Rental Slider start -->
-                <div class="d-none d-lg-block col-md-6 order-2 order-lg-1">
-                  <div class="card-slider-container position-relative overflow-hidden">
-                    <div class="card-slider d-flex transition align-items-center justify-content-between">
+        <!-- Rental Section start -->
+        <section id="rentalSection" class="py-5">
+          <div class="container-fluid">
+            <div class="row">
+
+              <!-- Big Rental Slider start -->
+              <div class="d-none d-lg-block col-md-6 order-2 order-lg-1">
+                <div class="card-slider-container position-relative overflow-hidden">
+                  <div class="card-slider d-flex transition align-items-center justify-content-between">
+                    <!-- 3 big screen cards -->
+                    @for ($i = 1; $i <= 3; $i++)
                       <div class="card rental big-screen">
                         <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <div class="rental-card-btn-holder d-flex align-items-center" id="rentalCardBtnHolderOne">
+                          <h5 class="card-title">Card title {{ $i }}</h5>
+                          <p class="card-text">
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                          </p>
+                          <div class="rental-card-btn-holder d-flex align-items-center" id="rentalCardBtnHolder{{ $i }}">
                             <p class="rental-card-btn">Detaljnije</p>
                             <div class="btn-icon-holder d-flex align-items-center justify-content-center">
-                              <img src="/images/icons/down.svg" alt="" />
+                              <img src="/images/icons/right.svg" alt="" />
                             </div>
                           </div>
                         </div>
-                        <ul class="list-group list-group-flush rental" id="rentalCardList">
+                        <ul class="list-group list-group-flush rental" id="rentalCardList{{ $i }}">
                           <li class="list-group-item">Item 1</li>
                           <li class="list-group-item">Item 2</li>
                           <li class="list-group-item">Item 3</li>
                         </ul>
                       </div>
-                      <div class="card rental big-screen">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <div class="rental-card-btn-holder d-flex align-items-center" id="rentalCardBtnHolder">
-                            <p class="rental-card-btn">Detaljnije</p>
-                            <div class="btn-icon-holder d-flex align-items-center justify-content-center">
-                              <img src="/images/icons/down.svg" alt="" />
-                            </div>
-                          </div>
-                        </div>
-                        <ul class="list-group list-group-flush rental" id="rentalCardList">
-                          <li class="list-group-item">Item 1</li>
-                          <li class="list-group-item">Item 2</li>
-                          <li class="list-group-item">Item 3</li>
-                        </ul>
-                      </div>
-                      <div class="card rental big-screen">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <div class="rental-card-btn-holder d-flex align-items-center" id="rentalCardBtnHolder">
-                            <p class="rental-card-btn">Detaljnije</p>
-                            <div class="btn-icon-holder d-flex align-items-center justify-content-center">
-                              <img src="/images/icons/down.svg" alt="" />
-                            </div>
-                          </div>
-                        </div>
-                        <ul class="list-group list-group-flush rental" id="rentalCardList">
-                          <li class="list-group-item">Item 1</li>
-                          <li class="list-group-item">Item 2</li>
-                          <li class="list-group-item">Item 3</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Big Rental Slider end -->
-                <!-- Small Rental Slider start -->
-                <div class="d-block d-lg-none col-md-6 order-2 order-lg-1">
-                  <div class="carousel-container">
-                    <div class="carousel-track">
-                      <div class="card rental">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <div class="rental-card-btn-holder d-flex align-items-center" id="rentalCardBtnHolder">
-                            <p class="rental-card-btn">Detaljnije</p>
-                            <div class="btn-icon-holder d-flex align-items-center justify-content-center">
-                              <img src="/images/icons/down.svg" alt="" />
-                            </div>
-                          </div>
-                        </div>
-                        <ul class="list-group list-group-flush rental" id="rentalCardList">
-                          <li class="list-group-item">Item 1</li>
-                          <li class="list-group-item">Item 2</li>
-                          <li class="list-group-item">Item 3</li>
-                        </ul>
-                      </div>
-                      <div class="card rental">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <div class="rental-card-btn-holder d-flex align-items-center" id="rentalCardBtnHolder">
-                            <p class="rental-card-btn">Detaljnije</p>
-                            <div class="btn-icon-holder d-flex align-items-center justify-content-center">
-                              <img src="/images/icons/down.svg" alt="" />
-                            </div>
-                          </div>
-                        </div>
-                        <ul class="list-group list-group-flush rental" id="rentalCardList">
-                          <li class="list-group-item">Item 1</li>
-                          <li class="list-group-item">Item 2</li>
-                          <li class="list-group-item">Item 3</li>
-                        </ul>
-                      </div>
-                      <div class="card rental">
-                        <div class="card-body">
-                          <h5 class="card-title">Card title</h5>
-                          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                          <div class="rental-card-btn-holder d-flex align-items-center" id="rentalCardBtnHolder">
-                            <p class="rental-card-btn">Detaljnije</p>
-                            <div class="btn-icon-holder d-flex align-items-center justify-content-center">
-                              <img src="/images/icons/down.svg" alt="" />
-                            </div>
-                          </div>
-                        </div>
-                        <ul class="list-group list-group-flush rental" id="rentalCardList">
-                          <li class="list-group-item">Item 1</li>
-                          <li class="list-group-item">Item 2</li>
-                          <li class="list-group-item">Item 3</li>
-                        </ul>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- Small Rental Slider end -->
-                <div class="col-md-6 order-1 order-lg-2 position-relative">
-                  <div class="d-none d-lg-block btn-icon-holder next-card d-flex align-items-center justify-content-center" id="nextCard">
-                    <img src="/images/icons/down.svg" alt="" />
-                  </div>
-                  <div class="rental-text-holder mb-5 mt-lg-0">
-                    <x-heading pageName="Rental"></x-heading>
-                    <p class="section-text rental">
-                      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard
-                      dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen
-                      book.
-                    </p>
+                    @endfor
                   </div>
                 </div>
               </div>
+              <!-- Big Rental Slider end -->
+
+              <!-- Small Rental Slider start -->
+              <div class="d-block d-lg-none col-md-6 order-2 order-lg-1">
+                <div class="carousel-container">
+                  <div class="carousel-track">
+                    <!-- 3 small screen cards -->
+                    @for ($i = 4; $i <= 6; $i++)
+                      <div class="card rental">
+                        <div class="card-body">
+                          <h5 class="card-title">Card title {{ $i }}</h5>
+                          <p class="card-text">
+                            Some quick example text to build on the card title and make up the bulk of the card's content.
+                          </p>
+                          <div class="rental-card-btn-holder d-flex align-items-center" id="rentalCardBtnHolder{{ $i }}">
+                            <p class="rental-card-btn">Detaljnije</p>
+                            <div class="btn-icon-holder d-flex align-items-center justify-content-center">
+                              <img src="/images/icons/right.svg" alt="" />
+                            </div>
+                          </div>
+                        </div>
+                        <ul class="list-group list-group-flush rental" id="rentalCardList{{ $i }}">
+                          <li class="list-group-item">Item 1</li>
+                          <li class="list-group-item">Item 2</li>
+                          <li class="list-group-item">Item 3</li>
+                        </ul>
+                      </div>
+                    @endfor
+                  </div>
+                </div>
+              </div>
+              <!-- Small Rental Slider end -->
+
+              <div class="col-md-6 order-1 order-lg-2 position-relative">
+                <div class="d-none d-lg-block btn-icon-holder next-card d-flex align-items-center justify-content-center" id="nextCard">
+                  <img src="/images/icons/right.svg" alt="" />
+                </div>
+                <div class="rental-text-holder mb-5 mt-lg-0">
+                  <x-heading pageName="Rental" />
+                  <p class="section-text rental">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy
+                    text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                  </p>
+                </div>
+              </div>
+
             </div>
-          </section>
-          <!-- Rental Section end -->
+          </div>
+        </section>
+        <!-- Rental Section end -->
+
       
           <!-- Divider Section -->
           <div class="divider-section py-5">

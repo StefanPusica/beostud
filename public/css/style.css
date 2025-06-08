@@ -470,6 +470,14 @@ body {
   padding: 7rem 1rem 3rem 1rem !important;
 }
 
+.list-group.rental {
+  display: none;
+}
+
+.list-group.rental.visible {
+  display: block;
+}
+
 .carousel-container {
   overflow: hidden;
   width: 100%;
@@ -516,6 +524,7 @@ body {
   position: relative;
   min-width: 50%; /* 2 kartice po prikazu */
   box-sizing: border-box;
+  height: 22rem;
 }
 
 .card.rental {
@@ -556,7 +565,7 @@ body {
 }
 
 .btn-icon-holder img {
-  transform: rotate(-90deg);
+  /* transform: rotate(-90deg); */
   transition: transform 0.3s ease-in;
 }
 
