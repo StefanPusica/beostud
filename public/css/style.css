@@ -773,6 +773,14 @@ body {
   background-color: #0c0c0c;
 }
 
+#contactSection input::placeholder {
+  color: #fff !important;
+}
+
+#contactSection textarea::placeholder {
+  color: #fff !important;
+}
+
 #contactSection input {
   background-color: #000 !important;
   color: #fff !important;
@@ -1144,6 +1152,12 @@ input[type="date"]::-webkit-calendar-picker-indicator:hover {
   font-weight: 500;
 }
 /* Cart section end */
+
+/* Toast start */
+#toast-container > div {
+  opacity: 1 !important;
+}
+/* Toast end */
 
 /* Small devices (landscape phones, 375px and up) */
 @media (min-width: 320px) {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\Checkout;
+use Illuminate\Support\Facades\Log;
 
 class CheckoutController extends Controller
 {
@@ -32,7 +33,7 @@ class CheckoutController extends Controller
             'message' => 'nullable|string',
         ]);
 
-        // Podaci o korpi
+        // Dobavljanje artikala iz korpe
         $cart = session('cart', []);
         $items = \App\Models\Item::findMany(array_keys($cart));
         $itemsWithQuantities = $items->map(function ($item) use ($cart) {
@@ -40,14 +41,24 @@ class CheckoutController extends Controller
             return $item;
         });
 
-        // Slanje mejla korisniku
-        Mail::to($validated['email'])->send(new Checkout($validated, $itemsWithQuantities, false));
-        // Slanje mejla adminu
-        Mail::to('stefan.pusica@beostud.rs')->send(new Checkout($validated, $itemsWithQuantities, true));
+        try {
+            // Slanje mejla korisniku
+            Mail::to($validated['email'])->send(new Checkout($validated, $itemsWithQuantities, false));
 
-        // Čistiš korpu
-        session()->forget('cart');
+            // Slanje mejla adminu
+            Mail::to('info@beostud.rs')->send(new Checkout($validated, $itemsWithQuantities, true));
 
-        return redirect('/')->with('success', 'Uspešno ste poslali zahtev. Javićemo vam se uskoro!');
+            // Praznjenje korpe
+            session()->forget('cart');
+
+            // Uspešan redirect
+            return redirect('/')->with('success', 'Uspešno ste poslali zahtev. Potvrda je poslata na vaš e-mail.');
+        } catch (\Exception $e) {
+            // Logovanje greške
+            Log::error('Greška prilikom slanja mejla u CheckoutController: ' . $e->getMessage());
+
+            // Neuspešan redirect
+            return redirect('/checkout')->with('error', 'Došlo je do greške prilikom slanja mejla. Pokušajte ponovo ili nas kontaktirajte direktno.');
+        }
     }
 }

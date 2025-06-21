@@ -11,11 +11,28 @@
     {{-- <script src="{{ asset('js/gallery.js') }}"></script> --}}
     @vite(['resources/js/app.js', 'resources/sass/app.scss'])
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet">
 </head>
 <body>
     <x-header />
     {{$slot}}
     <x-footer />
 
+    <!-- jQuery (potreban za toastr) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+    <script>
+        @if(session('success'))
+            toastr.success("{{ session('success') }}");
+        @endif
+
+        @if(session('error'))
+            toastr.error("{{ session('error') }}");
+        @endif
+    </script>
 </body>
 </html>

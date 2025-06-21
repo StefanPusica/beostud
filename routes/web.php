@@ -11,7 +11,10 @@ use App\Http\Controllers\CheckoutController;
 
 Route::get('/', [HomeController::class, 'index']);
 Route::get('/o-nama', [AboutController::class, 'about']);
-Route::get('/kontakt', [ContactController::class, 'contact']);
+
+Route::get('/kontakt', [ContactController::class, 'show'])->name('contact.form');
+Route::post('/kontakt', [ContactController::class, 'submit'])->name('contact.submit');
+
 Route::get('/galerija', [GalleryController::class, 'gallery']);
 
 // rental kategorije (bez podkategorije)
