@@ -6,6 +6,7 @@
 
             <form method="POST" class="d-flex flex-column justify-content-center align-items-center" action="{{ route('contact.submit') }}">
                 @csrf
+
                 <div class="col-md-7 mb-3">
                     <input type="text" class="form-control" name="name" placeholder="Ime i prezime" required />
                 </div>
@@ -18,9 +19,15 @@
                     <textarea class="form-control" name="message" placeholder="Tekst poruke" rows="4" required></textarea>
                 </div>
 
+                <div class="col-md-7 mb-3">
+                    {!! NoCaptcha::display() !!}
+                </div>
+
                 <div class="col-md-7 mb-3 d-flex justify-content-center align-items-center">
                     <button type="submit" class="beostud-btn mb-5 mt-3">Pošalji poruku</button>
                 </div>
+
+                {!! NoCaptcha::renderJs() !!}
             </form>
             
             <div class="row my-3">

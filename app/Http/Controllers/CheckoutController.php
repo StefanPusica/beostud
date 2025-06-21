@@ -31,6 +31,7 @@ class CheckoutController extends Controller
             'project_end' => 'required|date|after_or_equal:project_start',
             'note' => 'nullable|string|max:555',
             'message' => 'nullable|string',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
 
         // Dobavljanje artikala iz korpe

@@ -46,10 +46,16 @@
                         <label for="note" class="form-label">Napomena</label>
                         <textarea name="note" id="note" class="form-control"></textarea>
                     </div>
+
+                    <div class="col-md-7 mb-3">
+                        {!! NoCaptcha::display() !!}
+                    </div>
                 
                     <div class="text-end mt-5">
                         <button type="submit" class="btn beostud-btn white">Pošalji</button>
                     </div>
+
+                    {!! NoCaptcha::renderJs() !!}
                 </form>
             </div>
         </div>
